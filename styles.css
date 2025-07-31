@@ -7,4 +7,5 @@
 
 .cell {
     flex: 0 0 auto;
+    opacity: 0;
 }

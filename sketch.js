@@ -23,6 +23,7 @@ function createGrid (grid, cols) {
     grid.addEventListener("mouseover", (e) => {
         if(e.target.classList.contains("cell")) {
             e.target.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+            if (e.target.style.opacity < 1) e.target.style.opacity = Number(e.target.style.opacity) + 0.1;
         }
     });
 }
