@@ -1,10 +1,10 @@
-// grid.replaceChildren();
-
 const MAX_GRID_WIDTH = 960;
 const grid = document.querySelector("#grid");
 grid.style.maxWidth = MAX_GRID_WIDTH + "px";
 
 function createGrid (grid, cols) {      
+    grid.replaceChildren();
+    
     let divSize = Math.floor(MAX_GRID_WIDTH / cols);    
     
     // Create the divs
@@ -15,10 +15,17 @@ function createGrid (grid, cols) {
         newDiv.style.width = divSize + "px";
         grid.appendChild(newDiv);
     }
+
+    grid.addEventListener("mouseover", (e) => {
+        if(e.target.classList.contains("cell")) e.target.style.backgroundColor = "black";
+    });
 }
 
 createGrid(grid, 16);
 
-grid.addEventListener("mouseover", (e) => {
-    if(e.target.classList.contains("cell")) e.target.style.backgroundColor = "black";
+document.querySelector("#newGrid").addEventListener("click", () => {
+    let cols = prompt("How many columns should the grid have? Enter a number <= 100.");
+    while (cols < 1 || cols > 100) cols = prompt("Invalid entry. How many columns should the grid have? Enter a number <= 100.");
+    createGrid(grid, cols);
 });
+
