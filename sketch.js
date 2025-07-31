@@ -28,4 +28,3 @@ document.querySelector("#newGrid").addEventListener("click", () => {
     while (cols < 1 || cols > 100) cols = prompt("Invalid entry. How many columns should the grid have? Enter a number <= 100.");
     createGrid(grid, cols);
 });
-
