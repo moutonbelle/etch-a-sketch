@@ -18,3 +18,7 @@ function createGrid (grid, cols) {
 }
 
 createGrid(grid, 16);
+
+grid.addEventListener("mouseover", (e) => {
+    if(e.target.classList.contains("cell")) e.target.style.backgroundColor = "black";
+});
