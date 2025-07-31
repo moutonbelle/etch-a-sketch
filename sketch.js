@@ -2,6 +2,10 @@ const MAX_GRID_WIDTH = 960;
 const grid = document.querySelector("#grid");
 grid.style.maxWidth = MAX_GRID_WIDTH + "px";
 
+function random (maxInt) {
+    return Math.floor(Math.random() * maxInt) + 1;
+}
+
 function createGrid (grid, cols) {      
     grid.replaceChildren();
     
@@ -17,7 +21,9 @@ function createGrid (grid, cols) {
     }
 
     grid.addEventListener("mouseover", (e) => {
-        if(e.target.classList.contains("cell")) e.target.style.backgroundColor = "black";
+        if(e.target.classList.contains("cell")) {
+            e.target.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+        }
     });
 }
 
